@@ -1,10 +1,11 @@
-// // // async function  getData() { //sync js --> async js
-// // //    let data=await fetch("https://fakestoreapi.com/products")
-// // //    .then(res=>res.json())
-// // //    console.log(data,"data fetched")
+async function  getData() { //sync js --> async js
+   let data=await fetch("https://fakestoreapi.com/products")
+   .then(res=>res.json())
+   console.log(data,"data fetched")
+}
 
-// // // }
-// // // getData()
+
+getData()
 
 // // // let a=fetch("https://fakestoreapi.com/products")
 // // // .then(res=>res.json())
