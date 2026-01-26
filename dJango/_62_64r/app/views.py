@@ -5,3 +5,5 @@ from django.http import HttpResponse
 def home(request):
     # logic to retrieve model data
     return HttpResponse("this is home view")
+
+    

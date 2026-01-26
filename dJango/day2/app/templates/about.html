@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+
+<style>
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ===== GRADIENT BACKGROUND ===== */
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(120deg,#6a11cb,#2575fc,#00c6ff);
+    background-size:300% 300%;
+    animation: gradientBG 8s ease infinite;
+}
+
+/* ===== BACKGROUND ANIMATION ===== */
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== ABOUT CARD ===== */
+.about-card{
+    width:700px;
+    max-width:90%;
+    padding:45px;
+    border-radius:24px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+/* 3D hover */
+.about-card:hover{
+    transform: rotateY(-8deg) rotateX(5deg) scale(1.03);
+}
+
+/* ===== TITLE ===== */
+.about-card h1{
+    text-align:center;
+    color:#fff;
+    font-size:36px;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+/* ===== CONTENT ===== */
+.about-card p{
+    color:#f1f1f1;
+    font-size:16px;
+    line-height:1.9;
+    text-align:center;
+    opacity:0;
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay:0.4s;
+}
+
+/* text animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HIGHLIGHT TEXT ===== */
+.highlight{
+    color:#00eaff;
+    font-weight:600;
+}
+
+/* ===== FOOTER NOTE ===== */
+.about-footer{
+    margin-top:25px;
+    text-align:center;
+    color:#ddd;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="about-card">
+    <h1>About Us</h1>
+
+    <p>
+        We are passionate about building <span class="highlight">modern, scalable, and user-friendly web applications</span>.
+        Our focus is on delivering clean UI, smooth user experiences, and real-world solutions using the latest technologies.
+        <br><br>
+        From design to deployment, we believe in creating products that are not just functional, but also
+        <span class="highlight">visually engaging and performance-driven</span>.
+    </p>
+
+    <div class="about-footer">
+        Crafted with ❤️ using HTML & CSS
+    </div>
+</div>
+
+</body>
+</html>
