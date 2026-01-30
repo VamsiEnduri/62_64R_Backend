@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainDiv{
+            background-color: gray;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 95vh;
+            /* overflow-y: hidden; */
+        }
+        .secondDiv{
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem;
+            flex-direction: column;
+            /* width: 500px; */
+        }
+        #empFormAdd{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #empFormAdd > input {
+            display: block;
+            height: 30px;
+            margin: 5px 0px;
+            text-align: center;
+            width: 60% !important;
+        }
+        #btn{
+            cursor: pointer;
+            padding: 10px 40px;
+            border-radius: 4px;
+            outline: none !important;
+            background-color: lightsalmon;
+            font-size: 12px;
+            font-family: cursive;
+        }
+
+    </style>
+</head>
+<body>
+  <div class="mainDiv">
+      <div class="secondDiv">
+        <h2>AddEmployee</h2>
+    <form action="" id="empFormAdd">
+        <input type="text" placeholder="emp name here" required id="name" >  
+        <input type="text" placeholder="emp age here" required id="age"> 
+        <input type="email" placeholder="emp email here" required id="email">
+        <input type="dept" placeholder="emp dept here" required id="dept">
+        <p id="btn">addEmp</p>
+    </form>
+    </div>
+    <div id="employeesListDiv"></div>
+  </div>
+  <script src="{% static 'emps.js' %}"></script>
+</body>
+</html>
