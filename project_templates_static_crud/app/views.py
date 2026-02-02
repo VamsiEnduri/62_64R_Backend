@@ -8,6 +8,26 @@ from .models import Employees
 def home(req):
     return render(req,"home.html")
 
+@api_view(["PUT"])
+def update_emp(req,__id):
+    n=req.data.get("name")    
+    a=req.data.get("age")    
+    e=req.data.get("email")    
+    d=req.data.get("dept")   
+    emp=Employees.objects.get(id=__id) 
+    emp.name=n 
+    emp.age=a 
+    emp.email=e
+    emp.dept=d 
+    emp.save()
+
+    return Response(f"{__id} id emp iupdated successfully")
+
+@api_view(["DELETE"])
+def delete_emp(req,__id):
+    e= Employees.objects.get(id=__id)
+    e.delete()
+    return Response(f"{__id} id emp delted successfully....")
 
 @api_view(["GET"])
 def get_employees(req):

@@ -37,7 +37,7 @@
             text-align: center;
             width: 60% !important;
         }
-        #btn{
+        #btn,#btn-edit{
             cursor: pointer;
             padding: 10px 40px;
             border-radius: 4px;
@@ -45,6 +45,15 @@
             background-color: lightsalmon;
             font-size: 12px;
             font-family: cursive;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        th{
+            background-color: yellow !important;
+        }
+        tr,td,th{
+            border: 2px solid  black;
         }
 
     </style>
@@ -59,10 +68,14 @@
         <input type="email" placeholder="emp email here" required id="email">
         <input type="dept" placeholder="emp dept here" required id="dept">
         <p id="btn">addEmp</p>
+        <p id="btn-edit" style="display: none;">editEmp</p>
     </form>
     </div>
-    <div id="employeesListDiv"></div>
+    <table id="employeesListDiv">
+        
+        <tbody id="tBody"></tbody>
+    </table>
   </div>
-  <script src="{% static 'emps.js' %}"></script>
+  <script src="{% static 'a.js' %}"></script>
 </body>
 </html>
