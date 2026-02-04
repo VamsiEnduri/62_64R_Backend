@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import home,add_employee,get_employees,delete_emp,update_emp
-
+# from .views import home,add_employee,get_employees,delete_emp,update_emp
+from .views import get_employees,add_employee
 urlpatterns=[
-    path("",home),
+    # path("",home),
     path("add_employee/",add_employee),
     path("get_employees/",get_employees),
-    path("delete_emp/<int:__id>/",delete_emp),
-    path("update_emp/<int:__id>/",update_emp)
+    # path("delete_emp/<int:__id>/",delete_emp),
+    # path("update_emp/<int:__id>/",update_emp)
 ]
