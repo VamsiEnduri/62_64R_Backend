@@ -6,18 +6,26 @@ from .models import Doctor,Patient
 def home(req):
     return render(req,"registration.html")
 
-   
-def patientsDashboard(req):
-    c={
-        "name":"ramya"
-    }
-    return render(req,"patientsDashboard.html",c)
-   
-def doctorsDashboard(req):
-    c={
-        "name":"ramya"
-    }
-    return render(req,"DoctorsDashboard.html")
+
+def patientsDashboard(req,id):
+    patient=Patient.objects.get(id=id) # obj :-- .
+    if "appointments" in req.path:
+        template="patientsAppointments.html"
+    elif "profile" in req.path:
+        template="patientsProfile.html"
+    else:
+        template="patientsDashboard.html"
+    return render(req,template,{"user":patient})
+
+def doctorsDashboard(req,id):
+    doctor=Doctor.objects.get(id=id) # obj :-- .
+    if "appointments" in req.path:
+        template="doctorsAppointments.html"
+    elif "profile" in req.path:
+        template="doctorsProfile.html"
+    else:
+        template="DoctorsDashboard.html"
+    return render(req,template,{"user":doctor})
 
 
 @api_view(["POST"])
@@ -27,21 +35,18 @@ def login_validation(req):
     r=req.data.get("r")
     drs=Doctor.objects.all().values()
     pts=Patient.objects.all().values()
-    for j in pts:
-        if j["email"] == e and j["password"]  == p:
-            if  r == "Patient" : 
-                return Response({"msg":"login successful patient","r_url":"patientsDashboard"})
-        else:
-            continue
-
-    for i in drs: #10
-        print(type(i))
-        if i["email"] == e and i["password"]  == p:
-            if  r == "Doctor" : 
-                return Response({"msg":"login successful doctor","r_url":"doctorsDashboard"})
-        else:
-            continue
-    return Response({"d":drs})
+    
+    if r == "Doctor":
+        print("vamsi     aaaa")
+        for i in drs:
+            if i["email"] == e and i["password"] == p:
+                return Response({"msg":"doctor login done","r_url":"doctorsDashboard","id":i["id"],"role":i["role"]})
+    elif r == "Patient":
+        for i in pts:
+            if i["email"] == e and i["password"] == p:
+                return Response({"msg":"patient login done","r_url":"patientsDashboard","id":i["id"],"role":i["role"]})
+    else:
+        return Response("role doesnt exist")        
 
 
 @api_view(["GET"])

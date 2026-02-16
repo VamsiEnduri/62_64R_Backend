@@ -20,6 +20,7 @@ login_btn.addEventListener("click",(e)=>{
         body:JSON.stringify(login_p_d)
     }).then(res=>res.json()).then(res=>{
         console.log(res,"drs")
+        window.location.href=`/${res.r_url}/${res.id}`
         // window.location.href=`/${res.r_url}`
     })
 })
