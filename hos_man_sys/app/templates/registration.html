@@ -85,15 +85,24 @@
     <input type="password" placeholder="enter password" id="password" required>
     <input type="password" placeholder="enter confirm password" id="c_password" required>
     <select name="" id="role" required>
-        <option value="">Choose one below</option>
+        <option value="">Choose role below</option>
         <option value="Doctor">Doctor</option>
         <option value="Patient">Patient</option>
+    </select>
+
+    <select name="" id="spec" required>
+        <option value="">Choose specilization below</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Ortho">Ortho</option>
+        <option value="Neurology">Neurology</option>
+        <option value="General">General</option>
+        <option value="Others">Others</option>
     </select>
     <button id="reg_btn">Register</button>
     </form>
     <a href="/login">Login</a>
    </div>
 
-   <script src="{% static 'reg.js' %}"></script>
+   <script src="{% static 'reg2.js' %}"></script>
 </body>
 </html>

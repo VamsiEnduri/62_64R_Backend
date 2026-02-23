@@ -1,15 +1,8 @@
 console.log("reg form js file");
-
-// let f= document.getElementById("reg_form")
-// console.log(f)
-// let name=document.getElementById("name").value ;
-// let email = document.getElementById("email").value;
-
-// console.log(name, "name");
-
 let reg_btn = document.getElementById("reg_btn");
 
 reg_btn.addEventListener("click", (e) => {
+  e.preventDefault();
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let phNum = document.getElementById("phNum").value;
@@ -19,7 +12,7 @@ reg_btn.addEventListener("click", (e) => {
   let spec = document.getElementById("spec").value;
 
   console.log(role)
-  e.preventDefault();
+//   e.preventDefault();
   let r_user = {
     n: name,
     e: email,
